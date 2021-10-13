@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {initialState} from "./initial-state";
+import {setReactComponent} from "./dispatcher";
+import VehicleList from "./vehicleList";
+import VehicleForm from "./vehicleForm";
+import {getVehiclesServiceAction} from "./services/vehicleCRUDService";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = initialState;
+    }
+
+    componentDidMount() {
+        setReactComponent(this);
+        (async () => {
+            await getVehiclesServiceAction();
+        })();
+    }
+
+    render () {
+        const { formData, vehiclesDisplay, vehicles } = this.state;
+
+        return (
+            <div className="App">
+              <header className="App-header">
+                  Junk Tracker 3000
+              </header>
+              <aside>
+                  <VehicleForm formData={formData} />
+              </aside>
+              <section>
+                  <VehicleList vehiclesDisplay={vehiclesDisplay} vehicles={vehicles} />
+              </section>
+            </div>
+        );
+    }
 }
 
 export default App;

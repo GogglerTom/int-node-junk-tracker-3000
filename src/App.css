@@ -1,38 +1,118 @@
-.App {
+.App-header {
+  font-size: 2.3rem;
+  color: #7e7e7e;
+  padding: 10px;
+  border-bottom: 1px solid #333;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section, aside {
+  margin: 0 auto;
+  max-width: 75%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section {
+  height: calc(100vh - 350px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+aside {
+  position: sticky;
+  top: 0;
+  height: 178px;
+  width: 100vw;
+  background: rgb(17,25,31);
 }
 
-.App-link {
-  color: #61dafb;
+#VehicleForm h3 {
+  margin: 15px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#VehicleForm:after, #VehicleList .display:after {
+  content: "";
+  clear: both;
+  display: table;
 }
+
+#VehicleList button, #VehicleForm button {
+  padding: 10px 15px;
+  display: inline-block;
+  float: left;
+  margin-top: 40px;
+  max-width: 75px;
+}
+
+#VehicleList button {
+  margin: 10px 10px 0 0;
+}
+
+#VehicleList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#VehicleList li {
+  list-style: none;
+}
+
+#VehicleList label, #VehicleList select, #VehicleList input,
+#VehicleForm label {
+  width: calc(14% - 10px);
+  margin-right: 10px;
+  float: left;
+}
+
+#VehicleList label {
+  width: calc(14% - 10px);
+  color: rgba(187, 198, 206, .45);
+}
+
+#VehicleList .display input {
+  float: none;
+}
+
+#VehicleList .header label {
+  color: rgba(187, 198, 206, .7);
+}
+
+#VehicleList .header label,
+#VehicleList .display label {
+  width: calc(14% - 10px);
+}
+
+#VehicleList .header label:last-of-type {
+  width: calc(58% - 10px);
+}
+#VehicleList .display label:last-of-type {
+  width: calc(42% - 85px);
+}
+
+#VehicleList .display label input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#VehicleList select, #VehicleList input {
+  border: 1px solid #000;
+  color: rgba(187, 198, 206, .45);
+}
+
+#VehicleList select {
+  background-image: none;
+}
+
+#VehicleList select:hover,
+#VehicleList select:focus,
+#VehicleList input:hover,
+#VehicleList input:focus {
+  color: rgba(187, 198, 206, 1);
+  border: var(--border-width) solid var(--border-color);
+}
+
+#VehicleList select:hover, #VehicleList select:focus {
+  background-image: var(--icon-chevron);
+}
+
+.hidden {
+  display: none;
+}
+
